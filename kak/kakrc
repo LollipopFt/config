@@ -1,0 +1,69 @@
+addhl global/ number-lines -hlcursor
+addhl global/ show-matching
+addhl global/ show-whitespaces
+addhl global/ wrap
+colorscheme base16
+map global insert <tab> '<a-;><a-gt>'
+map global insert <s-tab> '<a-;><a-lt>'
+map global normal t j
+map global normal T J
+map global normal n k
+map global normal N K
+map global normal s l
+map global normal S L
+map global normal j t
+map global normal J T
+map global normal k n
+map global normal K N
+map global normal l s
+map global normal L S
+map global user h '<a-;>: lsp-hover<ret>' -docstring 'hover'
+map global user f '<a-;>: lsp-formatting-sync<ret>' -docstring 'format'
+set global scrolloff 255,0
+set global tabstop 4
+
+hook global InsertChar < 'exec ><left>'
+hook global InsertChar \. %{ try %{
+    exec -draft hH <a-k>,\.<ret> d
+    exec <esc>
+}}
+
+define-command select-or-extend-lines %{
+    try %{
+        # At least one selection is not full, so select whole lines.
+        execute-keys -draft '<a-K>\A^.+\n\z<ret>'
+        execute-keys 'x'
+    } catch %{
+        execute-keys 'J'
+    }
+}
+
+map global normal 'X' ': select-or-extend-lines<ret>'
+
+hook global InsertCompletionShow .* %{
+    try %{
+        execute-keys -draft 'h<a-K>\h<ret>'
+        map window insert <tab> <c-n>
+        map window insert <s-tab> <c-p>
+        hook -once -always window InsertCompletionHide .* %{
+            unmap window insert <tab> <c-n>
+            unmap window insert <s-tab> <c-p>
+        }
+    }
+}
+
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+plug-chain "andreyorst/plug.kak" noload %{
+} plug "alexherbo2/auto-pairs.kak" config %{
+    set global auto_pairs ( ) { } [ ] '"' '"' "'" "'" ` `
+} plug "kak-lsp/kak-lsp" do %{
+    cargo install --locked --force --path .
+}
+
+hook global WinSetOption filetype=rust %{
+    lsp-enable-window
+}
+
+hook global KakBegin .* %{
+    enable-auto-pairs
+}
