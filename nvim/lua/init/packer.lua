@@ -16,26 +16,29 @@ return require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
+        event = 'VimEnter',
         requires = { 'nvim-lua/plenary.nvim' }
     }
 
     use {
         'hood/popui.nvim',
-        requires = 'RishabhRD/popfix'
+        event = 'VimEnter',
+        requires = 'RishabhRD/popfix',
+        config = function()
+            vim.ui.select = require('popui.ui-overrider')
+            vim.ui.input = require('popui.input-overrider')
+        end
     }
-    vim.ui.select = require('popui.ui-overrider')
-    vim.ui.input = require('popui.input-overrider')
 
     use {
         'nvim-treesitter/nvim-treesitter',
         event = 'VimEnter',
-        cmd = 'TSUpdate',
+        cmd = 'TSUpdateSync',
         config = function() require('nvim-treesitter.configs').setup {
-            enable = true,
             ensure_installed = { 'c', 'rust', 'toml' },
-            highlight = { enable = true }
+            sync_install = true
         }
-        require('nvim-treesitter.install').compilers = { 'clang', 'gcc', 'cl' }
+        require('nvim-treesitter.install').compilers = { 'clang' }
         end
     }
 
@@ -53,11 +56,11 @@ return require('packer').startup(function(use)
             show_current_context_start = true,
             context_char = '▏',
         }
-        end
+            vim.opt.list = true
+            vim.opt.listchars:append 'space:∙'
+            vim.opt.listchars:append 'eol:↴'
+       end
     }
-    vim.opt.list = true
-    vim.opt.listchars:append 'eol:↴'
-
     use {
         'folke/which-key.nvim',
         event = 'VimEnter',
@@ -66,6 +69,7 @@ return require('packer').startup(function(use)
 
     use {
         'windwp/nvim-autopairs',
+        event = 'VimEnter',
         config = function()
             require('nvim-autopairs').setup({
                 map_cr = true,
@@ -94,17 +98,15 @@ return require('packer').startup(function(use)
     }
 
     use {
-        'folke/zen-mode.nvim',
-        config = function() require('zen-mode').setup {} end
-    }
-
-    use {
-        'folke/twilight.nvim',
-        config = function() require('twilight').setup {} end
+        'TimUntersberger/neogit',
+        requires = 'nvim-lua/plenary.nvim',
+        event = 'VimEnter',
+        config = function() require('neogit').setup {} end
     }
 
     use {
         'folke/trouble.nvim',
+        event = 'VimEnter',
         config = function()
             require('trouble').setup {
                 icons = false,
@@ -122,11 +124,23 @@ return require('packer').startup(function(use)
         end
     }
 
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/nvim-cmp'
+    use {
+        'hrsh7th/cmp-nvim-lsp',
+        event = 'BufEnter'
+    }
+    use {
+        'hrsh7th/nvim-cmp',
+        event = 'BufEnter'
+    }
     use {
         'L3MON4D3/LuaSnip',
         requires = 'saadparwaiz1/cmp_luasnip',
-        after = 'nvim-cmp'
+        after = 'nvim-cmp',
+        config = function() require('init.lsp') end
+    }
+    use {
+        'j-hui/fidget.nvim',
+        event = 'BufEnter',
+        config = function() require('fidget').setup{} end
     }
 end)

@@ -70,15 +70,21 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   LuaSnip = {
-    load_after = {},
-    loaded = true,
+    config = { "\27LJ\2\n(\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\rinit.lsp\frequire\0" },
+    load_after = {
+      ["nvim-cmp"] = true
+    },
+    loaded = false,
     needs_bufread = true,
     path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
   ["cmp-nvim-lsp"] = {
-    loaded = true,
-    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-nvim-lsp",
+    after_files = { "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-nvim-lsp\\after\\plugin\\cmp_nvim_lsp.lua" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   cmp_luasnip = {
@@ -86,13 +92,21 @@ _G.packer_plugins = {
     path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["fidget.nvim"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\vfidget\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["indent-blankline.nvim"] = {
-    config = { "\27LJ\2\n�\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\b\21show_end_of_line\2\25show_current_context\2\31show_current_context_start\2\17context_char\b▏\28show_first_indent_level\1\19use_treesitter\2\tchar\b▏#show_trailing_blankline_indent\1\nsetup\21indent_blankline\frequire\0" },
+    config = { "\27LJ\2\n�\2\0\0\4\0\v\0\0256\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0+\1\2\0=\1\6\0006\0\4\0009\0\5\0009\0\a\0\18\2\0\0009\0\b\0'\3\t\0B\0\3\0016\0\4\0009\0\5\0009\0\a\0\18\2\0\0009\0\b\0'\3\n\0B\0\3\1K\0\1\0\feol:↴\14space:∙\vappend\14listchars\tlist\bopt\bvim\1\0\b\25show_current_context\2\21show_end_of_line\2#show_trailing_blankline_indent\1\28show_first_indent_level\1\19use_treesitter\2\17context_char\b▏\tchar\b▏\31show_current_context_start\2\nsetup\21indent_blankline\frequire\0" },
     load_after = {
       ["nvim-treesitter"] = true
     },
@@ -102,15 +116,28 @@ _G.packer_plugins = {
     path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  neogit = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\vneogit\frequire\0" },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\neogit",
+    url = "https://github.com/TimUntersberger/neogit"
+  },
   ["nvim-autopairs"] = {
-    config = { "\27LJ\2\no\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\nchars\1\5\0\0\6{\6[\6(\6\"\1\0\2\vmap_cr\2\rcheck_ts\2\nsetup\19nvim-autopairs\frequire\0" },
-    loaded = true,
-    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-autopairs",
+    config = { "\27LJ\2\no\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\nchars\1\5\0\0\6{\6[\6(\6\"\1\0\2\rcheck_ts\2\vmap_cr\2\nsetup\19nvim-autopairs\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    loaded = true,
-    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
+    after = { "LuaSnip" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-colorizer.lua"] = {
@@ -128,8 +155,8 @@ _G.packer_plugins = {
   },
   ["nvim-treesitter"] = {
     after = { "indent-blankline.nvim" },
-    commands = { "TSUpdate" },
-    config = { "\27LJ\2\n�\1\0\0\4\0\v\0\0166\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\0016\0\0\0'\2\b\0B\0\2\0025\1\n\0=\1\t\0K\0\1\0\1\4\0\0\nclang\bgcc\acl\14compilers\28nvim-treesitter.install\14highlight\1\0\1\venable\2\21ensure_installed\1\4\0\0\6c\trust\ttoml\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0" },
+    commands = { "TSUpdateSync" },
+    config = { "\27LJ\2\n�\1\0\0\4\0\t\0\0146\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\0016\0\0\0'\2\6\0B\0\2\0025\1\b\0=\1\a\0K\0\1\0\1\2\0\0\nclang\14compilers\28nvim-treesitter.install\21ensure_installed\1\0\1\17sync_install\2\1\4\0\0\6c\trust\ttoml\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -152,13 +179,18 @@ _G.packer_plugins = {
     url = "https://github.com/RishabhRD/popfix"
   },
   ["popui.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\popui.nvim",
+    config = { "\27LJ\2\n�\1\0\0\4\0\a\0\r6\0\0\0009\0\1\0006\1\3\0'\3\4\0B\1\2\2=\1\2\0006\0\0\0009\0\1\0006\1\3\0'\3\6\0B\1\2\2=\1\5\0K\0\1\0\26popui.input-overrider\ninput\23popui.ui-overrider\frequire\vselect\aui\bvim\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\popui.nvim",
     url = "https://github.com/hood/popui.nvim"
   },
   ["telescope.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope.nvim",
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["todo-comments.nvim"] = {
@@ -175,16 +207,12 @@ _G.packer_plugins = {
     url = "https://github.com/folke/tokyonight.nvim"
   },
   ["trouble.nvim"] = {
-    config = { "\27LJ\2\n�\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\nsigns\1\0\4\nerror\b❌\16information\tℹ \fwarning\t⚠ \thint\t💡\1\0\5\25use_diagnostic_signs\1\17indent_lines\1\nicons\1\14fold_open\bᐯ\16fold_closed\bᐳ\nsetup\ftrouble\frequire\0" },
-    loaded = true,
-    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\trouble.nvim",
+    config = { "\27LJ\2\n�\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\nsigns\1\0\4\16information\tℹ \fwarning\t⚠ \thint\t💡\nerror\b❌\1\0\5\25use_diagnostic_signs\1\17indent_lines\1\16fold_closed\bᐳ\14fold_open\bᐯ\nicons\1\nsetup\ftrouble\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
-  },
-  ["twilight.nvim"] = {
-    config = { "\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rtwilight\frequire\0" },
-    loaded = true,
-    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\twilight.nvim",
-    url = "https://github.com/folke/twilight.nvim"
   },
   ["which-key.nvim"] = {
     config = { "\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14which-key\frequire\0" },
@@ -193,49 +221,22 @@ _G.packer_plugins = {
     only_cond = false,
     path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
-  },
-  ["zen-mode.nvim"] = {
-    config = { "\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rzen-mode\frequire\0" },
-    loaded = true,
-    path = "C:\\Users\\lollipopft\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\zen-mode.nvim",
-    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: twilight.nvim
-time([[Config for twilight.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rtwilight\frequire\0", "config", "twilight.nvim")
-time([[Config for twilight.nvim]], false)
--- Config for: zen-mode.nvim
-time([[Config for zen-mode.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rzen-mode\frequire\0", "config", "zen-mode.nvim")
-time([[Config for zen-mode.nvim]], false)
--- Config for: trouble.nvim
-time([[Config for trouble.nvim]], true)
-try_loadstring("\27LJ\2\n�\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\nsigns\1\0\4\nerror\b❌\16information\tℹ \fwarning\t⚠ \thint\t💡\1\0\5\25use_diagnostic_signs\1\17indent_lines\1\nicons\1\14fold_open\bᐯ\16fold_closed\bᐳ\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
-time([[Config for trouble.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\no\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\nchars\1\5\0\0\6{\6[\6(\6\"\1\0\2\vmap_cr\2\rcheck_ts\2\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
--- Load plugins in order defined by `after`
-time([[Sequenced loading]], true)
-vim.cmd [[ packadd nvim-cmp ]]
-vim.cmd [[ packadd LuaSnip ]]
-time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TSUpdate lua require("packer.load")({'nvim-treesitter'}, { cmd = "TSUpdate", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TSUpdateSync lua require("packer.load")({'nvim-treesitter'}, { cmd = "TSUpdateSync", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufEnter * ++once lua require("packer.load")({'indent-blankline.nvim', 'nvim-colorizer.lua'}, { event = "BufEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'todo-comments.nvim', 'nvim-treesitter', 'which-key.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'todo-comments.nvim', 'telescope.nvim', 'popui.nvim', 'nvim-autopairs', 'which-key.nvim', 'nvim-treesitter', 'neogit', 'trouble.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufEnter * ++once lua require("packer.load")({'nvim-cmp', 'fidget.nvim', 'indent-blankline.nvim', 'nvim-colorizer.lua', 'cmp-nvim-lsp'}, { event = "BufEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
